@@ -1,0 +1,6 @@
+{
+  "name": "CliChat",
+  "description": "AI customer service agents for African businesses on Website, WhatsApp, and Telegram.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

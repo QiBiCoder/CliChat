@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CliChat — Hire an AI Employee That Works 24/7</title>
+  <!-- SEO & Favicon placeholder -->
+  <meta name="description" content="CliChat builds AI customer service agents for African businesses. Deploy on Website, WhatsApp, and Telegram." />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Icon Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <!-- Dynamic Background Ambient Blobs -->
+  <div class="ambient-blob blob-1"></div>
+  <div class="ambient-blob blob-2"></div>
+  <div class="ambient-blob blob-3"></div>
+
+  <!-- STICKY NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-comments-text text-brand-primary"></i> Cli<span>Chat</span>
+      </a>
+      
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+        <li><a href="#quote" class="nav-link">Get Quote</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <a href="#quote" class="nav-cta-btn">Get My Quote</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <ul class="mobile-menu">
+      <li><a href="#home" class="mobile-link">Home</a></li>
+      <li><a href="#features" class="mobile-link">Features</a></li>
+      <li><a href="#how-it-works" class="mobile-link">How It Works</a></li>
+      <li><a href="#faq" class="mobile-link">FAQ</a></li>
+      <li><a href="#quote" class="mobile-link">Get Quote</a></li>
+      <li><a href="#quote" class="mobile-cta-btn">Get My Quote</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+        <div class="hero-badge">
+          <span class="pulse-indicator"></span>
+          AI Customer Service Built for Africa
+        </div>
+        <h1>Hire an AI Employee <br><span class="gradient-text">That Works 24/7</span></h1>
+        <p class="hero-sub">
+          Automate customer support and sales across your Website, WhatsApp and Telegram.
+        </p>
+        <div class="hero-btns">
+          <a href="#quote" class="btn btn-primary">
+            <span>Get My Quote</span> <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#features" class="btn btn-secondary">
+            <span>Learn More</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Interactive Chat Demo -->
+      <div class="hero-graphic" data-aos="fade-left" data-aos-duration="1000">
+        <div class="chat-widget">
+          <div class="chat-header">
+            <div class="chat-avatar">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+            <div class="chat-meta">
+              <h4>Akua — Support Agent</h4>
+              <p><span class="online-dot"></span> Online Now</p>
+            </div>
+          </div>
+          <div class="chat-body" id="chatBody">
+            <!-- Messages populated via script.js -->
+            <div class="chat-typing" id="chatTyping">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="chat-footer">
+            <input type="text" placeholder="Type a message..." readonly />
+            <button class="chat-send-btn" aria-label="Send message">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATISTICS BAND -->
+  <section class="stats-section">
+    <div class="container stats-grid">
+      <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="stat-num" data-target="3">0</div>
+        <div class="stat-label">Average Setup Time (Days)</div>
+      </div>
+      <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Availability Window</div>
+      </div>
+      <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="stat-num" data-target="80">0</div>
+        <div class="stat-label">Queries Resolved Automatically</div>
+      </div>
+      <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Languages Spoken</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section id="features" class="features-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="eyebrow">Enterprise Capabilities</span>
+        <h2>Features Built for High Growth</h2>
+        <p>Deploy AI agents that match the skills of your top human employees, equipped with state-of-the-art conversational tools.</p>
+      </div>
+      
+      <div class="features-grid">
+        <!-- Card 1 -->
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-icon icon-blue">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <h3>AI Customer Support</h3>
+          <p>Instantly resolve customer questions about products, services, operating hours, and policies with absolute precision.</p>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-icon icon-purple">
+            <i class="fa-solid fa-language"></i>
+          </div>
+          <h3>Multilingual Agent</h3>
+          <p>Fluent in English, Twi, and Pidgin. Let your customers converse in the language they find most comfortable.</p>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="feature-icon icon-green">
+            <i class="fa-solid fa-people-arrows"></i>
+          </div>
+          <h3>Human Handoff</h3>
+          <p>Seamlessly routes complex conversations to your team when human intervention is required, ensuring zero frustration.</p>
+        </div>
+        
+        <!-- Card 4 -->
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="feature-icon icon-pink">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <h3>Instant Replies</h3>
+          <p>Never lose a sale because of slow responses. Keep response times strictly at zero seconds, day and night.</p>
+        </div>
+        
+        <!-- Card 5 -->
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="feature-icon icon-yellow">
+            <i class="fa-solid fa-sack-dollar"></i>
+          </div>
+          <h3>Sales Assistant</h3>
+          <p>Recommend matching products, assist with payments, and upsell clients with bespoke recommendations.</p>
+        </div>
+        
+        <!-- Card 6 -->
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+          <div class="feature-icon icon-cyan">
+            <i class="fa-solid fa-clock"></i>
+          </div>
+          <h3>24/7 Availability</h3>
+          <p>Deliver elite assistance during public holidays, weekends, and late night intervals without any shift fatigue.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS SECTION -->
+  <section id="how-it-works" class="how-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="eyebrow">The Process</span>
+        <h2>Up and Running in 3 Steps</h2>
+        <p>No software engineering, configuration fatigue, or technical training required. We do all the heavy lifting.</p>
+      </div>
+      
+      <div class="steps-container">
+        <!-- Connection line -->
+        <div class="steps-line"></div>
+        
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-num-badge">1</div>
+            <div class="step-icon">
+              <i class="fa-solid fa-circle-info"></i>
+            </div>
+            <h3>Tell us about your business</h3>
+            <p>Share your product catalog, FAQs, guidelines, or business document files. We feed these directly to the AI model's training matrix.</p>
+          </div>
+          
+          <!-- Step 2 -->
+          <div class="step-card" data-aos="fade-up" data-aos-delay="250">
+            <div class="step-num-badge">2</div>
+            <div class="step-icon">
+              <i class="fa-solid fa-network-wired"></i>
+            </div>
+            <h3>Choose where your AI will work</h3>
+            <p>Select your deployment endpoints. Whether it's your website, WhatsApp, or Telegram, we configure smooth routing across channels.</p>
+          </div>
+          
+          <!-- Step 3 -->
+          <div class="step-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="step-num-badge">3</div>
+            <div class="step-icon">
+              <i class="fa-solid fa-rocket"></i>
+            </div>
+            <h3>We build and deploy it</h3>
+            <p>Our engineers fine-tune and test your custom agent, provide a private preview sandbox, and push it live to serve customers 24/7.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE WIZARD SECTION -->
+  <section id="quote" class="quote-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="eyebrow">Price Calculator</span>
+        <h2>Get Your Custom Quote</h2>
+        <p>Calculate an immediate estimate and request configuration. Zero hidden costs, pay-as-you-go transparency.</p>
+      </div>
+      
+      <div class="quote-wizard-container" data-aos="fade-up" data-aos-delay="100">
+        <!-- Floating Step Counter -->
+        <div class="wizard-step-badge">
+          Step <span id="currentStepText">1</span> of 3
+        </div>
+        
+        <div class="wizard-layout">
+          <!-- Left side highlights -->
+          <div class="wizard-info-panel">
+            <div class="panel-header">
+              <div class="panel-icon"><i class="fa-solid fa-sliders text-brand-primary"></i></div>
+              <h3>Agent Configurator</h3>
+            </div>
+            
+            <div class="panel-benefits">
+              <div class="benefit-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <div>
+                  <h4>Trained on custom files</h4>
+                  <p>Accepts PDFs, docs, and links</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <div>
+                  <h4>Zero coding required</h4>
+                  <p>We deploy everything for you</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <div>
+                  <h4>English & Local Languages</h4>
+                  <p>Includes English, Twi, and Pidgin</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <div>
+                  <h4>Free Lifetime Updates</h4>
+                  <p>Update your documents or guidelines anytime at 100% no extra cost</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="price-feedback-card" style="display: none;">
+              <div class="price-feedback-label">Estimated Monthly Total</div>
+              <div class="price-feedback-value" id="priceFeedbackValue">GHS 2,999</div>
+              <p class="price-feedback-note">Charged monthly • Setup included • Update anytime at no extra cost</p>
+            </div>
+          </div>
+          
+          <!-- Right side: Wizard Interactive Form -->
+          <div class="wizard-form-panel">
+            <!-- Progress indicator bar -->
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" id="progressBarFill"></div>
+            </div>
+            
+            <form id="quoteWizardForm" novalidate>
+              
+              <!-- STEP 1: Basic Info -->
+              <div class="wizard-step active" id="wizardStep1">
+                <h3>Tell us about yourself</h3>
+                <p class="step-desc">Let's collect your basic info to personalize your AI employee workspace.</p>
+                
+                <div class="form-group">
+                  <label for="businessName">Business Name <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <i class="fa-solid fa-building"></i>
+                    <input type="text" id="businessName" placeholder="e.g. Kofi Electronics" required />
+                  </div>
+                  <span class="error-msg" id="err-businessName">Please enter your business name.</span>
+                </div>
+                
+                <div class="form-group">
+                  <label for="contactName">Contact Name <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="contactName" placeholder="e.g. Samuel Osei" required />
+                  </div>
+                  <span class="error-msg" id="err-contactName">Please enter a contact name.</span>
+                </div>
+                
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <div class="input-with-icon">
+                      <i class="fa-solid fa-envelope"></i>
+                      <input type="email" id="email" placeholder="e.g. contact@business.com" required />
+                    </div>
+                    <span class="error-msg" id="err-email">Please enter a valid email address.</span>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="phone">Phone Number <span class="required">*</span></label>
+                    <div class="input-with-icon">
+                      <i class="fa-solid fa-phone"></i>
+                      <input type="tel" id="phone" placeholder="e.g. +233 24 123 4567" required />
+                    </div>
+                    <span class="error-msg" id="err-phone">Please enter a valid phone number.</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- STEP 2: Industry Details -->
+              <div class="wizard-step" id="wizardStep2">
+                <h3>Business Scale</h3>
+                <p class="step-desc">Help us size your operational volume so we can optimize AI throughput constraints.</p>
+                
+                <div class="form-group">
+                  <label for="industry">Industry <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <select id="industry" required>
+                      <option value="" disabled selected>Choose Industry...</option>
+                      <option value="Retail">Retail & E-commerce</option>
+                      <option value="Restaurant">Restaurant & Hospitality</option>
+                      <option value="Education">Education & Training</option>
+                      <option value="Healthcare">Healthcare & Wellness</option>
+                      <option value="Logistics">Logistics & Delivery</option>
+                      <option value="Real Estate">Real Estate</option>
+                      <option value="Technology">Technology & SaaS</option>
+                      <option value="Professional Services">Professional Services</option>
+                      <option value="Other">Other Business</option>
+                    </select>
+                  </div>
+                  <span class="error-msg" id="err-industry">Please select your industry.</span>
+                </div>
+                
+                <div class="form-group">
+                  <label for="volume">Monthly Customer Enquiries <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <i class="fa-solid fa-comments"></i>
+                    <select id="volume" required>
+                      <option value="" disabled selected>Select Monthly Enquiries Scale...</option>
+                      <option value="0-100">Under 100 enquiries</option>
+                      <option value="100-500">100 to 500 enquiries</option>
+                      <option value="500-1000">500 to 1,000 enquiries</option>
+                      <option value="1000+">More than 1,000 enquiries</option>
+                    </select>
+                  </div>
+                  <span class="error-msg" id="err-volume">Please select your monthly volume.</span>
+                </div>
+              </div>
+              
+              <!-- STEP 3: Deployment Channels & Submission -->
+              <div class="wizard-step" id="wizardStep3">
+                <h3>Where should the AI deploy?</h3>
+                <p class="step-desc">Select which chat channels you want your agent to operate on. Each selected platform adds GHS 1,000 to the monthly rate.</p>
+                
+                <div class="form-group">
+                  <label>Deployment Endpoints <span class="required">*</span></label>
+                  
+                  <div class="checkbox-group">
+                    <!-- Checkbox 1 -->
+                    <label class="custom-checkbox">
+                      <input type="checkbox" id="platformWebsite" value="Website" checked />
+                      <span class="checkbox-box">
+                        <i class="fa-solid fa-check"></i>
+                      </span>
+                      <span class="checkbox-content">
+                        <i class="fa-solid fa-globe checkbox-channel-icon text-brand-primary"></i>
+                        <span class="checkbox-label">Website Integrator</span>
+                      </span>
+                    </label>
+                    
+                    <!-- Checkbox 2 -->
+                    <label class="custom-checkbox">
+                      <input type="checkbox" id="platformWhatsApp" value="WhatsApp" />
+                      <span class="checkbox-box">
+                        <i class="fa-solid fa-check"></i>
+                      </span>
+                      <span class="checkbox-content">
+                        <i class="fa-brands fa-whatsapp checkbox-channel-icon text-brand-success"></i>
+                        <span class="checkbox-label">WhatsApp Channel</span>
+                      </span>
+                    </label>
+                    
+                    <!-- Checkbox 3 -->
+                    <label class="custom-checkbox">
+                      <input type="checkbox" id="platformTelegram" value="Telegram" />
+                      <span class="checkbox-box">
+                        <i class="fa-solid fa-check"></i>
+                      </span>
+                      <span class="checkbox-content">
+                        <i class="fa-brands fa-telegram checkbox-channel-icon text-brand-blue"></i>
+                        <span class="checkbox-label">Telegram Channel</span>
+                      </span>
+                    </label>
+                  </div>
+                  <span class="error-msg" id="err-platforms">You must select at least one deployment channel.</span>
+                </div>
+                
+                <div class="general-error-box" id="generalFormError">
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  <span>Please check the previous steps for missing required data.</span>
+                </div>
+              </div>
+              
+              <!-- Navigation Actions -->
+              <div class="wizard-actions">
+                <button type="button" class="btn btn-secondary" id="btnBack" style="display: none;">
+                  <i class="fa-solid fa-arrow-left"></i> Back
+                </button>
+                <button type="button" class="btn btn-primary" id="btnNext">
+                  Continue <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <button type="submit" class="btn btn-primary" id="btnSubmit" style="display: none;">
+                  Submit & Get Agent <i class="fa-solid fa-check-circle"></i>
+                </button>
+              </div>
+            </form>
+            
+            <!-- SUCCESS VIEW -->
+            <div class="wizard-success-screen" id="wizardSuccessScreen">
+              <div class="success-icon-wrapper">
+                <i class="fa-solid fa-check-double animate-pulse-glow"></i>
+              </div>
+              <h3>Configuration Received!</h3>
+              
+              <div class="success-price-card" style="background: rgba(37, 99, 235, 0.08); border: 1px solid rgba(255, 255, 255, 0.08); padding: 20px 24px; border-radius: var(--radius-md); text-align: center; width: 100%; max-width: 320px; margin: 15px 0 25px 0;">
+                <div class="success-price-label" style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">Your Estimated Monthly Total</div>
+                <div class="success-price-value" id="successPriceValue" style="font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 700; color: #FFFFFF; letter-spacing: -0.02em;">GHS 2,999</div>
+                <p class="success-price-note" style="font-size: 0.75rem; color: var(--text-dim); margin-top: 4px;">Charged monthly • Setup included • Update anytime at no extra cost</p>
+              </div>
+
+              <p>Thank you for submitting your agent configuration! Our solution architects will review your requirements and reach out on the contact details provided within 24 hours.</p>
+              <button class="btn btn-secondary mt-6" id="btnResetWizard">Configure Another Agent</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="eyebrow">Information Center</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Learn more about how our AI employees are configured, deployed, and customized for regional businesses.</p>
+      </div>
+      
+      <div class="faq-accordion-container">
+        <!-- FAQ 1 -->
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="50">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Can it answer customer questions automatically?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-content">
+            <p>Yes, absolutely. CliChat operates on an intelligent training loop fed with your business documents, catalogues, FAQ files, policies, and pricing charts. When clients ask questions, the agent queries this knowledge graph and replies instantly with high-precision details.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ 2 -->
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Can it work with WhatsApp?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-content">
+            <p>Yes. Your AI agent can be deployed to a designated WhatsApp Business number via official APIs. It can automatically manage conversations, recommend inventory items, and prompt lead captures directly inside the WhatsApp interface, providing a highly familiar shopping flow.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ 3 -->
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Can it work with my website?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-content">
+            <p>Yes. We provide a single-line script embed code (similar to Google Analytics) that installs an interactive chat bubble directly on your site. This works perfectly across WordPress, Shopify, Wix, Custom React, or static HTML web systems.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ 4 -->
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>How long does setup take?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-content">
+            <p>Our turnaround time is extremely fast. Once you fill out the configuration and provide your training files, our engineering team optimizes, builds, and deploys your custom AI model within 24 to 48 hours.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ 5 -->
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Can it be customized?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-content">
+            <p>Completely. You can customize the agent's name, response tone (e.g., highly formal, friendly retail assistant, technical troubleshooter), color themes to align with your brand, language options, fallback escalation triggers, and call-to-actions.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ 5.5 -->
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="275">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Can we update our business information or documents later?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-content">
+            <p>Yes, absolutely! You can update your training documents, FAQs, inventory lists, product catalogs, policies, or pricing details at any time with <strong>100% free lifetime updates</strong>. There are no extra costs or hidden fees to keep your AI employee up-to-date.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ 6 -->
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Do I need technical knowledge?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-content">
+            <p>Zero. Our service is designed to be fully managed. You provide the raw knowledge, choose the deployment platform, and we do all the coding, training, API linkage, hosting, and performance monitoring. If you can send an email, you can work with CliChat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="final-cta-section">
+    <div class="container text-center" data-aos="zoom-in" data-aos-duration="1000">
+      <h2>Ready to never miss a customer again?</h2>
+      <p>Join businesses across Africa already scaling their customer service infrastructure with CliChat AI employees.</p>
+      <div class="cta-actions">
+        <a href="#quote" class="btn btn-primary">Get My Quote Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <i class="fa-solid fa-comments-text text-brand-primary"></i> Cli<span>Chat</span>
+        </a>
+        <p>Next-generation conversational artificial intelligence built for African high-growth enterprises.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 CliChat. Built with <i class="fa-solid fa-heart text-brand-accent"></i> for growth.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS Animations Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- Main Script -->
+  <script type="module" src="./script.js" defer></script>
+</body>
+</html>
