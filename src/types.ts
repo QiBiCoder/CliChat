@@ -1,49 +1,60 @@
-export type MathTopic =
-  | 'all'
-  | 'linear-equations'
-  | 'quadratic-equations'
-  | 'systems-of-equations'
-  | 'polynomials-factoring'
-  | 'inequalities'
-  | 'exponents-radicals'
-  | 'word-problems';
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
 
-export type Difficulty = 'easy' | 'medium' | 'hard' | 'challenge';
+export type FoundNavTab = 'home' | 'questions' | 'solutions' | 'subjects' | 'about';
+
+export type FoundSubjectId =
+  | 'algebra'
+  | 'geometry'
+  | 'trigonometry'
+  | 'calculus'
+  | 'statistics'
+  | 'number'
+  | 'additional_math'
+  | 'past_papers';
+
+export interface FoundSubjectCard {
+  id: FoundSubjectId;
+  name: string;
+  symbol: string; // e.g., 'x²', '△', '∼', '∫', '📊', 'π', 'Σ', '📄'
+  symbolType: 'math' | 'icon';
+  description: string;
+  accentBg: string; // e.g., 'bg-purple-100 text-purple-600'
+  badgeBorder: string;
+  pillColor: string;
+  totalQuestions: number;
+  totalSolutions: number;
+  subtopics: string[];
+}
 
 export interface SolutionStep {
   stepNumber: number;
   title: string;
-  latex?: string;
   explanation: string;
+  mathFormula?: string;
 }
 
-export interface MathProblem {
+export interface MathQuestionItem {
   id: string;
+  subjectId: FoundSubjectId;
+  subjectName: string;
+  badgeLabel: string;
+  badgeBg: string;
+  badgeText: string;
+  badgeBorder: string;
   title: string;
-  topic: MathTopic;
-  difficulty: Difficulty;
-  latex: string;
-  questionText: string;
-  context?: string;
-  hints: string[];
-  finalAnswer: string;
-  acceptableAnswers: string[];
-  steps: SolutionStep[];
-  tags: string[];
-  isGenerated?: boolean;
-  timestamp?: number;
-}
-
-export interface FilterOptions {
-  searchQuery: string;
-  topic: MathTopic;
-  difficulty: Difficulty | 'all';
-  onlySaved: boolean;
-}
-
-export interface PracticeStats {
-  totalAttempted: number;
-  correctCount: number;
-  streak: number;
-  bestStreak: number;
+  problemText: string;
+  mathFormula?: string;
+  difficulty: 'Easy' | 'Medium' | 'Hard';
+  topic: string;
+  curriculum: string; // 'IGCSE', 'GCSE', 'A-Level', 'IB'
+  solution: {
+    overview: string;
+    keyFormulas?: string[];
+    steps: SolutionStep[];
+    finalAnswer: string;
+    tips?: string;
+  };
 }

@@ -1,57 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-display: "Outfit", system-ui, sans-serif;
-  --font-mono: "Fira Code", monospace;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --color-brand-emerald: #10B981;
+  --color-brand-emerald-dark: #059669;
+  --color-brand-navy: #0B132B;
+  --color-brand-header: #0F172A;
 }
 
-/* Custom scrollbars */
+:root {
+  --brand-emerald: #10B981;
+  --brand-navy: #0B132B;
+}
+
+/* Base custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #090d16;
+  background: #F1F5F9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 4px;
+  background: #CBD5E1;
+  border-radius: 99px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #94A3B8;
 }
 
-/* Math typesetting adjustments */
-.katex-display {
-  margin: 0.75em 0 !important;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 0.25rem 0;
+/* Save My Exams signature callout styles */
+.sme-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
 }
 
-.katex {
-  font-size: 1.1em;
+.sme-examiner-tip {
+  background-color: #FFFBEB;
+  border-left: 4px solid #F59E0B;
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.25rem;
 }
 
-/* Print styles for algebra worksheets */
+.sme-key-point {
+  background-color: #EFF6FF;
+  border-left: 4px solid #3B82F6;
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.25rem;
+}
+
+.sme-definition {
+  background-color: #ECFDF5;
+  border-left: 4px solid #10B981;
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.25rem;
+}
+
+.sme-worked-example {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
 @media print {
+  header, nav, .no-print {
+    display: none !important;
+  }
   body {
     background: white !important;
     color: black !important;
-  }
-  .no-print {
-    display: none !important;
-  }
-  .print-only {
-    display: block !important;
-  }
-  .worksheet-card {
-    page-break-inside: avoid;
-    border: 1px solid #cbd5e1 !important;
-    color: black !important;
-    background: white !important;
-    box-shadow: none !important;
   }
 }

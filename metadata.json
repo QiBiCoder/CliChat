@@ -1,6 +1,6 @@
 {
-  "name": "Found Math",
-  "description": "Discover and dynamically generate math questions with comprehensive step-by-step solutions, specializing in algebra from basic linear equations to advanced polynomials.",
+  "name": "Found Math — Practice. Learn. Get It Right",
+  "description": "Your one-stop resource for high-quality math questions and detailed solutions across Algebra, Geometry, Trigonometry, Calculus, and more.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
