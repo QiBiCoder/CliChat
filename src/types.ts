@@ -1,36 +1,49 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
+export type MathTopic =
+  | 'all'
+  | 'linear-equations'
+  | 'quadratic-equations'
+  | 'systems-of-equations'
+  | 'polynomials-factoring'
+  | 'inequalities'
+  | 'exponents-radicals'
+  | 'word-problems';
 
-export interface QuoteFormState {
-  businessName: string;
-  contactName: string;
-  email: string;
-  phone: string;
-  industry: string;
-  monthlyEnquiries: string;
-  platforms: {
-    website: boolean;
-    whatsapp: boolean;
-    telegram: boolean;
-  };
+export type Difficulty = 'easy' | 'medium' | 'hard' | 'challenge';
+
+export interface SolutionStep {
+  stepNumber: number;
+  title: string;
+  latex?: string;
+  explanation: string;
 }
 
-export interface FAQItem {
+export interface MathProblem {
   id: string;
-  question: string;
-  answer: string;
+  title: string;
+  topic: MathTopic;
+  difficulty: Difficulty;
+  latex: string;
+  questionText: string;
+  context?: string;
+  hints: string[];
+  finalAnswer: string;
+  acceptableAnswers: string[];
+  steps: SolutionStep[];
+  tags: string[];
+  isGenerated?: boolean;
+  timestamp?: number;
 }
 
-export interface FeatureItem {
-  icon: string;
-  title: string;
-  description: string;
+export interface FilterOptions {
+  searchQuery: string;
+  topic: MathTopic;
+  difficulty: Difficulty | 'all';
+  onlySaved: boolean;
 }
 
-export interface StepItem {
-  number: number;
-  title: string;
-  description: string;
+export interface PracticeStats {
+  totalAttempted: number;
+  correctCount: number;
+  streak: number;
+  bestStreak: number;
 }

@@ -1,6 +1,6 @@
 {
-  "name": "CliChat",
-  "description": "AI customer service agents for African businesses on Website, WhatsApp, and Telegram.",
+  "name": "Found Math",
+  "description": "Discover and dynamically generate math questions with comprehensive step-by-step solutions, specializing in algebra from basic linear equations to advanced polynomials.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

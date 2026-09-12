@@ -1,224 +1,180 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
-import { useState, useEffect } from "react";
-import { MessageSquare, Menu, X, ArrowRight } from "lucide-react";
+import React from 'react';
+import { 
+  Calculator, 
+  Sparkles, 
+  BookOpen, 
+  CheckCircle2, 
+  Bookmark, 
+  FileDown, 
+  Sigma,
+  Search
+} from 'lucide-react';
 
 interface NavbarProps {
-  onQuoteClick: () => void;
+  activeTab: 'bank' | 'generator' | 'practice' | 'formulas';
+  setActiveTab: (tab: 'bank' | 'generator' | 'practice' | 'formulas') => void;
+  savedCount: number;
+  onOpenWorksheet: () => void;
+  onQuickGenerate: () => void;
 }
 
-export default function Navbar({ onQuoteClick }: NavbarProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToSection = (id: string) => {
-    setIsOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80; // Navbar height offset
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
-  };
-
+export const Navbar: React.FC<NavbarProps> = ({
+  activeTab,
+  setActiveTab,
+  savedCount,
+  onOpenWorksheet,
+  onQuickGenerate,
+}) => {
   return (
-    <nav
-      id="navbar"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-[#0B1220]/80 backdrop-blur-md border-b border-white/5 py-4"
-          : "bg-transparent py-6"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <a
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-          className="flex items-center gap-2.5 group cursor-pointer"
+    <header className="sticky top-0 z-40 w-full border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md no-print">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+        
+        {/* Brand */}
+        <div 
+          onClick={() => setActiveTab('bank')}
+          className="flex items-center gap-3 cursor-pointer select-none group"
         >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-accent flex items-center justify-center shadow-lg shadow-brand-primary/20 group-hover:scale-105 transition-transform">
-            <MessageSquare className="w-5 h-5 text-white" />
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 p-[1px] shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform duration-200">
+            <div className="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center text-indigo-400 group-hover:text-indigo-300">
+              <span className="font-display font-black text-xl tracking-tighter">√x</span>
+            </div>
           </div>
-          <span className="font-display font-bold text-2xl tracking-tight text-white">
-            Cli<span className="text-brand-primary">Chat</span>
-          </span>
-        </a>
-
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8">
-          <a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-            className="text-sm font-medium text-slate-400 hover:text-brand-primary transition-colors"
-          >
-            Home
-          </a>
-          <a
-            href="#features"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("features");
-            }}
-            className="text-sm font-medium text-slate-400 hover:text-brand-primary transition-colors"
-          >
-            Features
-          </a>
-          <a
-            href="#how-it-works"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("how-it-works");
-            }}
-            className="text-sm font-medium text-slate-400 hover:text-brand-primary transition-colors"
-          >
-            How It Works
-          </a>
-          <a
-            href="#faq"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("faq");
-            }}
-            className="text-sm font-medium text-slate-400 hover:text-brand-primary transition-colors"
-          >
-            FAQ
-          </a>
-          <a
-            href="#quote"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("quote");
-            }}
-            className="text-sm font-medium text-slate-400 hover:text-brand-primary transition-colors"
-          >
-            Get Quote
-          </a>
+          <div>
+            <div className="flex items-center gap-1.5">
+              <span className="font-display font-extrabold text-xl tracking-tight text-white">
+                Found<span className="text-indigo-400">Math</span>
+              </span>
+              <span className="text-[10px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
+                Algebra
+              </span>
+            </div>
+            <p className="text-[11px] text-slate-400 hidden sm:block">Questions & Step-by-Step Solutions</p>
+          </div>
         </div>
 
-        {/* Desktop CTA */}
-        <div className="hidden md:block">
+        {/* Navigation Tabs */}
+        <nav className="hidden md:flex items-center gap-1 bg-slate-900/90 p-1 rounded-xl border border-slate-800">
           <button
-            id="nav-get-quote-btn"
-            onClick={onQuoteClick}
-            className="group relative inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-display font-bold text-sm text-white overflow-hidden transition-all duration-300"
+            onClick={() => setActiveTab('bank')}
+            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all ${
+              activeTab === 'bank'
+                ? 'bg-indigo-600 text-white shadow-sm'
+                : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+            }`}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-primary to-brand-accent transition-all duration-300 group-hover:opacity-90" />
-            <span className="relative z-10 flex items-center gap-1.5">
-              Get My Quote
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </span>
+            <BookOpen className="w-4 h-4" />
+            <span>Question Bank</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('generator')}
+            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all ${
+              activeTab === 'generator'
+                ? 'bg-indigo-600 text-white shadow-sm'
+                : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+            }`}
+          >
+            <Sparkles className="w-4 h-4 text-amber-300" />
+            <span>Problem Generator</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('practice')}
+            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all ${
+              activeTab === 'practice'
+                ? 'bg-indigo-600 text-white shadow-sm'
+                : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+            }`}
+          >
+            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+            <span>Practice Mode</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('formulas')}
+            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all ${
+              activeTab === 'formulas'
+                ? 'bg-indigo-600 text-white shadow-sm'
+                : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+            }`}
+          >
+            <Sigma className="w-4 h-4 text-cyan-400" />
+            <span>Formulas</span>
+          </button>
+        </nav>
+
+        {/* Action Buttons */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={onOpenWorksheet}
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/80 transition-colors"
+            title="Create and print printable worksheets"
+          >
+            <FileDown className="w-3.5 h-3.5 text-indigo-400" />
+            <span>Worksheet</span>
+          </button>
+
+          <button
+            onClick={onQuickGenerate}
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white shadow-md shadow-indigo-600/30 transition-all active:scale-95"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Generate New</span>
           </button>
         </div>
 
-        {/* Mobile Toggle */}
+      </div>
+
+      {/* Mobile Sub-Navigation */}
+      <div className="md:hidden flex items-center justify-around border-t border-slate-800/80 px-2 py-1.5 bg-slate-950">
         <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-slate-300 hover:text-white p-1"
-          aria-label="Toggle menu"
+          onClick={() => setActiveTab('bank')}
+          className={`flex flex-col items-center py-1 px-3 text-xs font-medium ${
+            activeTab === 'bank' ? 'text-indigo-400' : 'text-slate-400'
+          }`}
         >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          <BookOpen className="w-4 h-4 mb-0.5" />
+          <span>Bank</span>
+        </button>
+
+        <button
+          onClick={() => setActiveTab('generator')}
+          className={`flex flex-col items-center py-1 px-3 text-xs font-medium ${
+            activeTab === 'generator' ? 'text-indigo-400' : 'text-slate-400'
+          }`}
+        >
+          <Sparkles className="w-4 h-4 mb-0.5 text-amber-400" />
+          <span>Generate</span>
+        </button>
+
+        <button
+          onClick={() => setActiveTab('practice')}
+          className={`flex flex-col items-center py-1 px-3 text-xs font-medium ${
+            activeTab === 'practice' ? 'text-indigo-400' : 'text-slate-400'
+          }`}
+        >
+          <CheckCircle2 className="w-4 h-4 mb-0.5 text-emerald-400" />
+          <span>Practice</span>
+        </button>
+
+        <button
+          onClick={() => setActiveTab('formulas')}
+          className={`flex flex-col items-center py-1 px-3 text-xs font-medium ${
+            activeTab === 'formulas' ? 'text-indigo-400' : 'text-slate-400'
+          }`}
+        >
+          <Sigma className="w-4 h-4 mb-0.5 text-cyan-400" />
+          <span>Formulas</span>
+        </button>
+
+        <button
+          onClick={onOpenWorksheet}
+          className="flex flex-col items-center py-1 px-3 text-xs font-medium text-slate-400"
+        >
+          <FileDown className="w-4 h-4 mb-0.5 text-indigo-400" />
+          <span>Print</span>
         </button>
       </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={`md:hidden absolute top-full left-0 right-0 bg-brand-bg/95 border-b border-white/10 backdrop-blur-lg overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-screen opacity-100 py-6" : "max-h-0 opacity-0 pointer-events-none"
-        }`}
-      >
-        <div className="flex flex-col gap-4 px-6">
-          <a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              setIsOpen(false);
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-            className="text-lg font-medium text-slate-300 hover:text-white py-2"
-          >
-            Home
-          </a>
-          <a
-            href="#features"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("features");
-            }}
-            className="text-lg font-medium text-slate-300 hover:text-white py-2"
-          >
-            Features
-          </a>
-          <a
-            href="#how-it-works"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("how-it-works");
-            }}
-            className="text-lg font-medium text-slate-300 hover:text-white py-2"
-          >
-            How It Works
-          </a>
-          <a
-            href="#faq"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("faq");
-            }}
-            className="text-lg font-medium text-slate-300 hover:text-white py-2"
-          >
-            FAQ
-          </a>
-          <a
-            href="#quote"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("quote");
-            }}
-            className="text-lg font-medium text-slate-300 hover:text-white py-2"
-          >
-            Get Quote
-          </a>
-          <button
-            onClick={() => {
-              setIsOpen(false);
-              onQuoteClick();
-            }}
-            className="w-full mt-4 flex items-center justify-center gap-2 bg-gradient-to-r from-brand-primary to-brand-accent text-white py-3 px-5 rounded-xl font-display font-bold text-sm"
-          >
-            Get My Quote
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
-      </div>
-    </nav>
+    </header>
   );
-}
+};
