@@ -1,6 +1,6 @@
 {
-  "name": "Found Math — Practice. Learn. Get It Right",
-  "description": "Your one-stop resource for high-quality math questions and detailed solutions across Algebra, Geometry, Trigonometry, Calculus, and more.",
+  "name": "Found Math — worked problems that make the method click",
+  "description": "Real problems, worked out one step at a time, so the method finally makes sense — not just the answer.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
