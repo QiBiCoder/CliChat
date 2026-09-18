@@ -178,139 +178,159 @@ export function App() {
         </div>
       </header>
 
-      {/* Hero */}
-      <section className="hero" id="hero-section">
-        <div
-          className="wrap"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1.15fr 0.85fr',
-            gap: '40px',
-            alignItems: 'center',
-          }}
-        >
-          <div>
-            <h1>Math, found.</h1>
-            <p>
-              Real problems, worked out one step at a time, so the method finally makes sense — not just the answer.
-            </p>
-            <div className="cta-row">
-              <a href="#problems" className="btn btn-primary" id="btn-try-problem">
-                Try a problem
-              </a>
-              <a href="#how" className="btn btn-ghost" id="btn-see-how">
-                See how it works
-              </a>
+      {/* Main Content Landmark for SEO */}
+      <main id="main-content">
+        {/* Hero */}
+        <section className="hero" id="hero-section" aria-labelledby="hero-heading">
+          <div
+            className="wrap"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1.15fr 0.85fr',
+              gap: '40px',
+              alignItems: 'center',
+            }}
+          >
+            <div>
+              <h1 id="hero-heading">Math, found.</h1>
+              <p>
+                Real problems, worked out one step at a time, so the method finally makes sense — not just the answer.
+              </p>
+              <div className="cta-row">
+                <a href="#problems" className="btn btn-primary" id="btn-try-problem">
+                  Try a problem
+                </a>
+                <a href="#how" className="btn btn-ghost" id="btn-see-how">
+                  See how it works
+                </a>
+              </div>
             </div>
-          </div>
-          <div className="hero-figure">
-            <svg viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path className="draw-path" d="M20 210 C 60 40, 120 40, 150 130 S 260 220, 280 60" />
-              <path className="draw-path accent" d="M40 230 L 260 230" />
-              <path className="draw-path accent" d="M150 130 L 150 230" />
-            </svg>
-          </div>
-        </div>
-      </section>
-
-      {/* How it works */}
-      <section className="how" id="how">
-        <div className="wrap">
-          <h2 className="section-label">How it works</h2>
-          <div className="how-grid">
-            <div className="how-item" id="how-step-1">
-              <div className="num">01</div>
-              <h3>Pick a topic</h3>
-              <p>Filter problems by algebra, geometry, trigonometry, calculus, or statistics.</p>
-            </div>
-            <div className="how-item" id="how-step-2">
-              <div className="num">02</div>
-              <h3>Try it yourself</h3>
-              <p>Work through the problem before looking — that's where the learning happens.</p>
-            </div>
-            <div className="how-item" id="how-step-3">
-              <div className="num">03</div>
-              <h3>Reveal the solution</h3>
-              <p>See every step laid out, so you can find exactly where your approach differs.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Problems */}
-      <section className="topics" id="problems">
-        <div className="wrap">
-          <h2 className="section-label">Problems</h2>
-          
-          {/* Topic Pills */}
-          <div className="topic-pills" id="pillRow">
-            {TOPICS.map((topic) => (
-              <button
-                key={topic.id}
-                id={`pill-${topic.id}`}
-                className={`pill ${activeTopic === topic.id ? 'active' : ''}`}
-                data-topic={topic.id}
-                onClick={() => setActiveTopic(topic.id)}
+            <div className="hero-figure">
+              <svg
+                viewBox="0 0 300 260"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Mathematical parabola and geometric altitude graph"
               >
-                {topic.label}
-              </button>
-            ))}
+                <path className="draw-path" d="M20 210 C 60 40, 120 40, 150 130 S 260 220, 280 60" />
+                <path className="draw-path accent" d="M40 230 L 260 230" />
+                <path className="draw-path accent" d="M150 130 L 150 230" />
+              </svg>
+            </div>
           </div>
+        </section>
 
-          {/* Problem cards */}
-          <div className="problems" id="problemList">
-            {filteredProblems.map((problem) => {
-              const isOpen = !!openCards[problem.id];
-              return (
-                <div
-                  key={problem.id}
-                  id={`card-${problem.id}`}
-                  className={`card ${isOpen ? 'open' : ''}`}
-                  data-topic={problem.topic}
+        {/* How it works */}
+        <section className="how" id="how" aria-labelledby="how-heading">
+          <div className="wrap">
+            <h2 className="section-label" id="how-heading">How it works</h2>
+            <div className="how-grid">
+              <div className="how-item" id="how-step-1">
+                <div className="num">01</div>
+                <h3>Pick a topic</h3>
+                <p>Filter problems by algebra, geometry, trigonometry, calculus, or statistics.</p>
+              </div>
+              <div className="how-item" id="how-step-2">
+                <div className="num">02</div>
+                <h3>Try it yourself</h3>
+                <p>Work through the problem before looking — that's where the learning happens.</p>
+              </div>
+              <div className="how-item" id="how-step-3">
+                <div className="num">03</div>
+                <h3>Reveal the solution</h3>
+                <p>See every step laid out, so you can find exactly where your approach differs.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Problems */}
+        <section className="topics" id="problems" aria-labelledby="problems-heading">
+          <div className="wrap">
+            <h2 className="section-label" id="problems-heading">Problems</h2>
+            
+            {/* Topic Pills */}
+            <nav className="topic-pills" id="pillRow" aria-label="Filter problems by mathematics topic">
+              {TOPICS.map((topic) => (
+                <button
+                  key={topic.id}
+                  id={`pill-${topic.id}`}
+                  className={`pill ${activeTopic === topic.id ? 'active' : ''}`}
+                  data-topic={topic.id}
+                  aria-pressed={activeTopic === topic.id}
+                  onClick={() => setActiveTopic(topic.id)}
                 >
-                  <div
-                    className="card-top"
-                    onClick={() => toggleCard(problem.id)}
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        toggleCard(problem.id);
-                      }
-                    }}
+                  {topic.label}
+                </button>
+              ))}
+            </nav>
+
+            {/* Problem cards */}
+            <div className="problems" id="problemList">
+              {filteredProblems.map((problem) => {
+                const isOpen = !!openCards[problem.id];
+                return (
+                  <article
+                    key={problem.id}
+                    id={`card-${problem.id}`}
+                    className={`card ${isOpen ? 'open' : ''}`}
+                    data-topic={problem.topic}
+                    aria-labelledby={`question-title-${problem.id}`}
                   >
-                    <div>
-                      <p className="card-meta">{problem.topic}</p>
-                      <p className="card-question">{problem.questionNode}</p>
-                    </div>
-                    <button
-                      type="button"
-                      id={`btn-toggle-${problem.id}`}
-                      className="reveal-btn"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        toggleCard(problem.id);
+                    <div
+                      className="card-top"
+                      onClick={() => toggleCard(problem.id)}
+                      role="button"
+                      tabIndex={0}
+                      aria-expanded={isOpen}
+                      aria-controls={`solution-${problem.id}`}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          toggleCard(problem.id);
+                        }
                       }}
                     >
-                      {isOpen ? 'Hide solution' : 'Show solution'}
-                    </button>
-                  </div>
+                      <div>
+                        <p className="card-meta">{problem.topic}</p>
+                        <h3 className="card-question" id={`question-title-${problem.id}`}>
+                          {problem.questionNode}
+                        </h3>
+                      </div>
+                      <button
+                        type="button"
+                        id={`btn-toggle-${problem.id}`}
+                        className="reveal-btn"
+                        aria-expanded={isOpen}
+                        aria-controls={`solution-${problem.id}`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleCard(problem.id);
+                        }}
+                      >
+                        {isOpen ? 'Hide solution' : 'Show solution'}
+                      </button>
+                    </div>
 
-                  <div className="solution" id={`solution-${problem.id}`}>
-                    <ol>
-                      {problem.steps.map((step, index) => (
-                        <li key={index}>{step}</li>
-                      ))}
-                      <li className="final">{problem.finalAnswer}</li>
-                    </ol>
-                  </div>
-                </div>
-              );
-            })}
+                    <div
+                      className="solution"
+                      id={`solution-${problem.id}`}
+                      aria-hidden={!isOpen}
+                    >
+                      <ol>
+                        {problem.steps.map((step, index) => (
+                          <li key={index}>{step}</li>
+                        ))}
+                        <li className="final">{problem.finalAnswer}</li>
+                      </ol>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
       {/* Footer */}
       <footer id="main-footer">
